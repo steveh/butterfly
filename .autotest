@@ -1,0 +1,6 @@
+require "autotest/bundler"
+
+begin
+  require "autotest/fsevent"
+rescue LoadError
+end
