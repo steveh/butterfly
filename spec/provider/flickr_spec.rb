@@ -5,7 +5,7 @@ describe Butterfly::Provider::Flickr do
   let(:valid_response) { File.read(File.join(RSPEC_ROOT, "support/responses/flickr.json")) }
 
   it "should retrieve flickr likes" do
-    FakeWeb.register_uri(:get, "http://api.flickr.com/services/rest/?method=flickr.favorites.getPublicList&api_key=testapikey&user_id=testuserid&format=json&nojsoncallback=1&extras=description%2Clicense%2Cdate_upload%2Cdate_taken%2Cowner_name%2Cicon_server%2Coriginal_format%2Clast_update%2Cgeo%2Ctags%2Cmachine_tags%2Co_dims%2Cviews%2Cmedia%2Cpath_alias%2Curl_sq%2Curl_t%2Curl_s%2Curl_m%2Curl_z%2Curl_l%2Curl_o", :body  =>  valid_response)
+    FakeWeb.register_uri(:get, "http://api.flickr.com/services/rest/?method=flickr.favorites.getPublicList&api_key=testapikey&user_id=testuserid&format=json&nojsoncallback=1&extras=description%2Clicense%2Cdate_upload%2Cdate_taken%2Cowner_name%2Cicon_server%2Coriginal_format%2Clast_update%2Cgeo%2Ctags%2Cmachine_tags%2Co_dims%2Cviews%2Cmedia%2Cpath_alias%2Curl_sq%2Curl_t%2Curl_s%2Curl_m%2Curl_z%2Curl_l%2Curl_o", :body => valid_response)
 
     flickr = Butterfly::Provider::Flickr.new("testuserid", "testapikey")
 

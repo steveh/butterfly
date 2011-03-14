@@ -5,7 +5,7 @@ describe Butterfly::Provider::Dribbble do
   let(:valid_response) { File.read(File.join(RSPEC_ROOT, "support/responses/dribbble.json")) }
 
   it "should retrieve dribbble likes" do
-    FakeWeb.register_uri(:get, "http://api.dribbble.com/players/testusername/shots/likes", :body  =>  valid_response)
+    FakeWeb.register_uri(:get, "http://api.dribbble.com/players/testusername/shots/likes", :body => valid_response)
 
     dribbble = Butterfly::Provider::Dribbble.new("testusername")
 

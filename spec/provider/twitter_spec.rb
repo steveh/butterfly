@@ -5,7 +5,7 @@ describe Butterfly::Provider::Twitter do
   let(:valid_response) { File.read(File.join(RSPEC_ROOT, "support/responses/twitter.json")) }
 
   it "should retrieve twitter likes" do
-    FakeWeb.register_uri(:get, "http://api.twitter.com/1/favorites/testusername.json?include_entities=1", :body  =>  valid_response)
+    FakeWeb.register_uri(:get, "http://api.twitter.com/1/favorites/testusername.json?include_entities=1", :body => valid_response)
 
     twitter = Butterfly::Provider::Twitter.new("testusername")
 
