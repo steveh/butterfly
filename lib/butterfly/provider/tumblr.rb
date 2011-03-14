@@ -4,11 +4,7 @@ module Butterfly
 
       base_uri "http://www.tumblr.com/api"
 
-      attr_reader :email, :password
-
-      def initialize(email, password)
-        @email, @password = email, password
-      end
+      required_parameter :email, :password
 
       def raw
         @raw ||= self.class.get("/likes", :format => :xml, :query => { :email => email, :password => password })

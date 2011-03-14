@@ -4,11 +4,7 @@ module Butterfly
 
       base_uri "http://api.dribbble.com"
 
-      attr_reader :username
-
-      def initialize(username)
-        @username = username
-      end
+      required_parameter :username
 
       def raw
         @raw ||= self.class.get("/players/#{username}/shots/likes", :format => :json)

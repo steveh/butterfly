@@ -4,11 +4,7 @@ module Butterfly
 
       base_uri "http://api.twitter.com/1"
 
-      attr_reader :username
-
-      def initialize(username)
-        @username = username
-      end
+      required_parameter :username
 
       def raw
         @raw ||= self.class.get("/favorites/#{username}.json", :format => :json, :query => { :include_entities => 1 })

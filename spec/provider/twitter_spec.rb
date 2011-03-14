@@ -7,7 +7,7 @@ describe Butterfly::Provider::Twitter do
   it "should retrieve twitter likes" do
     FakeWeb.register_uri(:get, "http://api.twitter.com/1/favorites/testusername.json?include_entities=1", :body => valid_response)
 
-    twitter = Butterfly::Provider::Twitter.new("testusername")
+    twitter = Butterfly::Provider::Twitter.new(:username => "testusername")
 
     twitter.likes.first.as_json.should == {
       "service" => "twitter",

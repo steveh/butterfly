@@ -7,7 +7,7 @@ describe Butterfly::Provider::Dribbble do
   it "should retrieve dribbble likes" do
     FakeWeb.register_uri(:get, "http://api.dribbble.com/players/testusername/shots/likes", :body => valid_response)
 
-    dribbble = Butterfly::Provider::Dribbble.new("testusername")
+    dribbble = Butterfly::Provider::Dribbble.new(:username => "testusername")
 
     dribbble.likes.first.as_json.should == {
       "service" => "dribbble",

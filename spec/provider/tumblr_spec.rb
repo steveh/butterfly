@@ -7,7 +7,7 @@ describe Butterfly::Provider::Tumblr do
   it "should retrieve tumblr likes" do
     FakeWeb.register_uri(:get, "http://www.tumblr.com/api/likes?email=testemail&password=testpassword", :body => valid_response)
 
-    tumblr = Butterfly::Provider::Tumblr.new("testemail", "testpassword")
+    tumblr = Butterfly::Provider::Tumblr.new(:email => "testemail", :password => "testpassword")
 
     tumblr.likes.first.as_json.should == {
       "service" => "tumblr",

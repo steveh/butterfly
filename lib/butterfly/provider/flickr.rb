@@ -6,11 +6,7 @@ module Butterfly
 
       base_uri "http://api.flickr.com/services/rest"
 
-      attr_reader :user_id, :api_key
-
-      def initialize(user_id, api_key)
-        @user_id, @api_key = user_id, api_key
-      end
+      required_parameter :user_id, :api_key
 
       def raw
         @raw ||= self.class.get("/", :format => :json, :query => { :method => "flickr.favorites.getPublicList", :api_key => api_key, :user_id => user_id, :format => "json", :nojsoncallback => "1", :extras => EXTRAS.join(",") })
